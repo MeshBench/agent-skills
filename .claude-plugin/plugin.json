@@ -1,0 +1,12 @@
+{
+  "name": "meshbench",
+  "description": "Drive and script a running MeshBench workbench: coverage, link budgets, why a packet missed, and the clients and control socket that ask.",
+  "version": "0.1.0+g69f8aba",
+  "author": {
+    "name": "MeshBench",
+    "url": "https://github.com/MeshBench"
+  },
+  "homepage": "https://meshbench.github.io/docs/agent-skills.html",
+  "repository": "https://github.com/MeshBench/agent-skills",
+  "license": "GPL-3.0-or-later"
+}

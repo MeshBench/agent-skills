@@ -1,0 +1,15 @@
+{
+  "name": "meshbench-skills",
+  "owner": {
+    "name": "MeshBench",
+    "url": "https://github.com/MeshBench"
+  },
+  "description": "MeshBench's own agent skills, published from the repository that defines them.",
+  "plugins": [
+    {
+      "name": "meshbench",
+      "source": "./",
+      "description": "Drive and script a running MeshBench workbench: coverage, link budgets, why a packet missed, and the clients and control socket that ask."
+    }
+  ]
+}
