@@ -560,7 +560,7 @@ residual in the *other* direction is the interesting one, to be investigated
 rather than smoothed.
 
 <!--
-Published from MeshBench b681e7647cbcde1064a55c24af606cf0846af495 by tools/skillmirror.
+Published from MeshBench 37319962d54299920b6d34567cb859e348dd3396 by tools/skillmirror.
 
 The source of truth is .claude/skills/meshcoresim/SKILL.md in
 https://github.com/MeshBench/meshbench, where a skill is corrected in the same
