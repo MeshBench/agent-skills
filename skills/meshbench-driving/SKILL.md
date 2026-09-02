@@ -372,6 +372,12 @@ identical ledgers, so **the determinism the rest of the simulator guarantees
 does not hold** for a scenario containing one. Run boards one at a time: several
 at once will take a twelve-core machine down.
 
+The second is not left to be discovered. `sim.state` answers `reproducible` and
+`not_reproducible_why`, `experiment.start` answers the same pair, and the sweep
+says it before the run as well as over the results. Read it before quoting one
+run's timings against another's: an arm on emulated firmware is worth watching
+and is not worth subtracting from another arm.
+
 ### Where the pieces live
 
 | | |
@@ -560,7 +566,7 @@ residual in the *other* direction is the interesting one, to be investigated
 rather than smoothed.
 
 <!--
-Published from MeshBench 69f8aba7fbff56923e3607324471df9a5d10ac40 by tools/skillmirror.
+Published from MeshBench 742bebd5cd76d29b1efc49dc8a92683ab7031547 by tools/skillmirror.
 
 The source of truth is .claude/skills/meshcoresim/SKILL.md in
 https://github.com/MeshBench/meshbench, where a skill is corrected in the same

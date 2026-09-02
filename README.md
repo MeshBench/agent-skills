@@ -69,7 +69,7 @@ it wrong, and that is only possible while it sits beside the code.
 `meshbench-driving` is this repository's name for the skill MeshBench calls
 `meshcoresim`; the content is the same file.
 
-Published from MeshBench commit `69f8aba7fbff56923e3607324471df9a5d10ac40`. Compare it against
+Published from MeshBench commit `742bebd5cd76d29b1efc49dc8a92683ab7031547`. Compare it against
 [the canonical skills](https://github.com/MeshBench/meshbench/tree/main/.claude/skills)
 if you want to know whether your copy is current.
 
