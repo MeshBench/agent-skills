@@ -384,8 +384,35 @@ and is not worth subtracting from another arm.
 |---|---|
 | QEMU with our SX1262, GPIO and fixes | `MeshBench/qemu` branch `meshbench-sx1262` |
 | Renode with the SEVONPEND fix | `MeshBench/renode` and `MeshBench/tlib` |
-| The chip model, and the socket server | `meshcore-native`, `VirtualSX1262` + `bridge/radioserver.cpp` |
+| The chip model | `MeshBench/virtual-sx1262`, MIT, its own repository |
+| The socket server that hosts it | `meshcore-native`, `bridge/radioserver.cpp` |
 | Per-board wiring | `internal/firmware/board/board_<name>.go` |
+
+### The chip model is a submodule, and a submodule does not follow anything
+
+`virtual-sx1262` is pinned by commit wherever it is used, so **a change pushed
+to that repository reaches nobody until each consumer's pin is moved.** Nothing
+fails when they lag: a consumer keeps building, keeps passing its tests, and
+keeps running the old chip. That is the whole hazard - the DIO1 routing fix
+existed and did nothing for as long as the pin behind it did not move.
+
+So a change to `MeshBench/virtual-sx1262` is not finished when it merges there.
+It is finished when every pin below has been moved and the result has been seen
+running:
+
+| consumer | where the pin is | how to move it |
+|---|---|---|
+| `MeshBench/meshcore-native` | `vendor/virtual-sx1262` | `git -C vendor/virtual-sx1262 fetch && git -C vendor/virtual-sx1262 checkout origin/main`, then commit the new gitlink |
+
+`virtual-sx1262`'s own CI asks GitHub what each consumer pins and says which
+ones lag, so the list above is checked rather than remembered - add a row there
+in the same commit that adds one here. Keep the two in step; a consumer nobody
+wrote down is a consumer that silently stays behind.
+
+**A pin moved is not a pin proven.** The model is the thing every emulated board
+talks to, so bump it and then boot one board and watch it forward. Green tests
+in `virtual-sx1262` say the chip is right on its own terms; they say nothing
+about the firmware above it.
 
 Board wiring is **per board and verified per board**, never inferred from the
 MCU. `Heltec_v2` carries an **SX1276**, not an SX1262, despite sitting beside
@@ -566,7 +593,7 @@ residual in the *other* direction is the interesting one, to be investigated
 rather than smoothed.
 
 <!--
-Published from MeshBench 742bebd5cd76d29b1efc49dc8a92683ab7031547 by tools/skillmirror.
+Published from MeshBench d99d00e509597d4c22b75d945e14dbed0ba7b67e by tools/skillmirror.
 
 The source of truth is .claude/skills/meshcoresim/SKILL.md in
 https://github.com/MeshBench/meshbench, where a skill is corrected in the same
