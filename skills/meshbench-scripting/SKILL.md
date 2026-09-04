@@ -235,12 +235,12 @@ matched on `floor` as the catch-all now silently sees fewer of them. Group an
 - Unix socket paths are capped at 104 bytes. The scratchpad path is longer than
   that, so let the client choose the address.
 - **An emulated board no longer needs a hand-built toolchain.**
-  `resource.fetch` downloads `radioserver`, `qemu-system-xtensa` and `renode`
+  `resource.fetch` downloads `virtual-sx1262`, `qemu-system-xtensa` and `renode`
   into `~/.cache/meshbench/tools/`, which is where a boot already looks, so no
   environment variable is needed afterwards. **Pass `kind: "toolchain"`**: the
   parameter defaults to `softdevice`, and a fetch that omits it asks for the
   wrong thing. QEMU and Renode are published for linux/amd64 only; macOS gets
-  `radioserver` alone and Windows nothing, and `resource.list` says which with
+  the chip model alone and Windows nothing, and `resource.list` says which with
   a reason.
 - A killed run can leave an emulator behind. Check `pgrep -f qemu-system`.
 - Firmware roles on disk: `ls ~/.cache/meshbench/firmware/native/`.
@@ -288,7 +288,7 @@ claims.
   able to run a board.
 
 <!--
-Published from MeshBench d99d00e509597d4c22b75d945e14dbed0ba7b67e by tools/skillmirror.
+Published from MeshBench 21b3e3557cfa794144ec0f551eb66a8ea2b54015 by tools/skillmirror.
 
 The source of truth is .claude/skills/meshbench-scripting/SKILL.md in
 https://github.com/MeshBench/meshbench, where a skill is corrected in the same

@@ -342,13 +342,13 @@ one (ADR-0010). A node runs emulated when its `Firmware.Board` is set; empty
 means the host build.
 
 **The toolchain is a download now, not a build.** `resource.fetch` with
-`kind: "toolchain"` fetches `radioserver`, `qemu-system-xtensa` and `renode`
+`kind: "toolchain"` fetches `virtual-sx1262`, `qemu-system-xtensa` and `renode`
 into `~/.cache/meshbench/tools/`, which is step three of the lookup a boot
 already performs, so nothing has to be set afterwards. The `kind` parameter
 **defaults to `softdevice`**, so a fetch that omits it asks for the wrong thing.
 `resource.list` says what is present and what it cost; `setup.check` says the
 same beside everything else that is missing. QEMU and Renode are published for
-linux/amd64 only, macOS gets `radioserver` alone, and Windows nothing, each with
+linux/amd64 only, macOS gets the chip model alone, and Windows nothing, each with
 its reason. An emulated nRF52 board additionally needs the Nordic s140
 SoftDevice, which is its own `softdevice` resource.
 
@@ -385,7 +385,6 @@ and is not worth subtracting from another arm.
 | QEMU with our SX1262, GPIO and fixes | `MeshBench/qemu` branch `meshbench-sx1262` |
 | Renode with the SEVONPEND fix | `MeshBench/renode` and `MeshBench/tlib` |
 | The chip model | `MeshBench/virtual-sx1262`, MIT, its own repository |
-| The socket server that hosts it | `meshcore-native`, `bridge/radioserver.cpp` |
 | Per-board wiring | `internal/firmware/board/board_<name>.go` |
 
 ### The chip model is a submodule, and a submodule does not follow anything
@@ -593,7 +592,7 @@ residual in the *other* direction is the interesting one, to be investigated
 rather than smoothed.
 
 <!--
-Published from MeshBench d99d00e509597d4c22b75d945e14dbed0ba7b67e by tools/skillmirror.
+Published from MeshBench 21b3e3557cfa794144ec0f551eb66a8ea2b54015 by tools/skillmirror.
 
 The source of truth is .claude/skills/meshcoresim/SKILL.md in
 https://github.com/MeshBench/meshbench, where a skill is corrected in the same

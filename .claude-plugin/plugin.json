@@ -1,7 +1,7 @@
 {
   "name": "meshbench",
   "description": "Drive and script a running MeshBench workbench: coverage, link budgets, why a packet missed, and the clients and control socket that ask.",
-  "version": "0.1.0+gd99d00e",
+  "version": "0.1.0+g21b3e35",
   "author": {
     "name": "MeshBench",
     "url": "https://github.com/MeshBench"
