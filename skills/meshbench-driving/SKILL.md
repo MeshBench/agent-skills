@@ -347,9 +347,9 @@ into `~/.cache/meshbench/tools/`, which is step three of the lookup a boot
 already performs, so nothing has to be set afterwards. The `kind` parameter
 **defaults to `softdevice`**, so a fetch that omits it asks for the wrong thing.
 `resource.list` says what is present and what it cost; `setup.check` says the
-same beside everything else that is missing. QEMU and Renode are published for
-linux/amd64 only, macOS gets the chip model alone, and Windows nothing, each with
-its reason. An emulated nRF52 board additionally needs the Nordic s140
+same beside everything else that is missing. Linux and Windows can fetch all
+three; macOS can fetch the chip model and QEMU but not Renode, which publishes a
+build tree rather than a portable package there. Each gap says why. An emulated nRF52 board additionally needs the Nordic s140
 SoftDevice, which is its own `softdevice` resource.
 
 **`EmulatableBoards()` is the authority on what runs**, and it returns both the
@@ -592,7 +592,7 @@ residual in the *other* direction is the interesting one, to be investigated
 rather than smoothed.
 
 <!--
-Published from MeshBench 21b3e3557cfa794144ec0f551eb66a8ea2b54015 by tools/skillmirror.
+Published from MeshBench b0b3bf53676603ee82ff975bc6bbe26a4f762f9f by tools/skillmirror.
 
 The source of truth is .claude/skills/meshcoresim/SKILL.md in
 https://github.com/MeshBench/meshbench, where a skill is corrected in the same
