@@ -287,7 +287,7 @@ claims.
   able to run a board.
 
 <!--
-Published from MeshBench d9a4b47b53c84777578b06a636719e0c48235d7e by tools/skillmirror.
+Published from MeshBench 488a04a890fd8172d06782830d7a2b7b3cb7cc71 by tools/skillmirror.
 
 The source of truth is .claude/skills/meshbench-scripting/SKILL.md in
 https://github.com/MeshBench/meshbench, where a skill is corrected in the same
