@@ -79,7 +79,8 @@ looks like bad RF rather than a missing step.
    everything, then again per companion with `role: "companion_radio"`. Or set
    `repeater_version` / `companion_version` on `experiment.base`.
 4. **Regions: `infer.run` then `infer.apply`.** This is the step that gets
-   forgotten, and it is the one that decides whether anything relays at all.
+   forgotten, and it is the one that decides whether scoped traffic relays:
+   adverts and other unscoped floods relay either way, exactly as widely.
 5. `firmware.start`, then check `firmware.state` says `running == total`.
 6. Only then define and start the sweep.
 
@@ -595,7 +596,7 @@ residual in the *other* direction is the interesting one, to be investigated
 rather than smoothed.
 
 <!--
-Published from MeshBench 9dd805036ed4fc5ad2d3f8b7f3565b924cd17c93 by tools/skillmirror.
+Published from MeshBench 9f7487e464325f5a90c1590888e855ff78c2b6de by tools/skillmirror.
 
 The source of truth is .claude/skills/meshcoresim/SKILL.md in
 https://github.com/MeshBench/meshbench, where a skill is corrected in the same
